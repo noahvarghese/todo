@@ -1,0 +1,129 @@
+.TodoItem {
+    list-style: none;
+    clear: both;
+    text-align: left;
+    border-bottom: 1px dashed #282c34;
+    padding-top: 1vh;
+    min-height: 2em;
+}
+
+.displayTodo {
+    display: block;
+    padding-bottom: 2vh;
+}
+
+.editTodo {
+    display: none;
+    padding-bottom: 1vh;
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container .complete {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    float: left;
+    height: 1em;
+    width: 1em;
+    margin-top: 1vh;
+    margin-right: 2vw;
+    background-color: #282c34;
+}
+
+.container:hover .complete ~ .checkmark{
+    background-color: #61dafb;
+}
+
+.container .complete:checked ~ .checkmark:after{
+    display: block;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    top: -1vh;
+    width: 0.7em;
+    height: 1.75em;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    box-shadow: 3px 3px  #61dafb;
+
+}
+
+.button {
+    padding: 0;
+    float: right;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    font-size: calc(10px + 2vmin);
+    margin-right: 2em;
+}
+
+.button:focus {
+    outline: 0; 
+    cursor:pointer;
+}
+
+.button:hover {
+    color: #61dafb;
+    cursor:pointer;
+}
+
+.TodoItem input {
+    outline: 0;
+    padding-left: 1em;
+    background-color: #4f5768;
+    border: none;
+    color: white;
+    font-size: 1em;
+    margin-left: 2em;
+    padding-top: 1vh;
+    border-bottom: 2px solid white;
+    cursor: pointer;
+}
+
+.cancel, .check {
+    font-size: 1.5em;
+}
+
+.TodoItem:last-child {
+    margin-bottom:2em;
+}
+
+@media only screen and (max-width: 1024px) {
+    .container {
+        font-size: 15px;
+        padding-left: 15px;
+        margin-bottom: 5px;
+    }
+
+    .displayTodo {}
+}
